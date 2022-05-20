@@ -23,20 +23,20 @@ jobs:
       - run: npm run typecheck
       - run: npm run test:unit
 
-  # build:
-  #   runs-on: ubuntu-latest
-  #   needs: test
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '17'
-  #     - run: npm ci
-  #     - run: npm run build
-  #     - run: 'tar cvf - dist | xz -1 > artifact-${GITHUB_SHA}.tar.xz'
-  #     - name: Prepare artifact
-  #     - uses: actions/upload-artifact@v3
-  #       with:
-  #         name: disaster-ninja-fe-$GITHUB_SHA
-  #         path: '*.tar.xz'
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17'
+      - run: npm ci
+      - run: npm run build
+      - run: 'tar cvf - dist | xz -1 > artifact-${GITHUB_SHA}.tar.xz'
+      - name: Prepare artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: disaster-ninja-fe-$GITHUB_SHA
+          path: '*.tar.xz'
 
