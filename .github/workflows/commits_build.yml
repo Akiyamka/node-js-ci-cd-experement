@@ -33,10 +33,10 @@ jobs:
           node-version: '17'
       - run: npm ci
       - run: npm run build
-      - run: echo $GITHUB_SHA
-      - run: tar cvf - dist | xz -1 > artifact-$GITHUB_SHA.tar.xz
+      - run: echo ${{ github.ref }}
+      - run: tar cvf - dist | xz -1 > artifact-${{ github.ref }}.tar.xz
       - uses: actions/upload-artifact@v3
         with:
-          name: disaster-ninja-fe-$GITHUB_SHA
+          name: disaster-ninja-fe-${{ github.ref }}
           path: '*.tar.xz'
 
