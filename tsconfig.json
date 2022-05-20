@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "useDefineForClassFields": true,
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "baseUrl": "./src",
+    "paths": {
+      "~components/*": ["components/*"],
+      "~views/*": ["views/*"],
+      "~config/*": ["config/*"],
+      "~utils/*": ["utils/*"],
+      "~services/*": ["services/*"],
+      "~appModule/*": ["redux-modules/appModule/*"],
+      "~core/*": ["core/*"],
+      "~features/*": ["features/*"]
+    }
+  },
+  "include": [
+    "./src/**/*.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "src/utils/map/mapCSSToMapBoxPropertiesConverter/__test__/mapCSSToMapBoxPropertiesConverter.test.js"
+  ],
+  "exclude": ["**/*.test.tsx"],
+  "types": ["@types/react"],
+  "typeRoots": ["./node_modules/@types"]
+}

@@ -1,0 +1,72 @@
+@import-normalize;
+
+html,
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 1.4em;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c4d0df;
+}
+
+/* Icons */
+.svgIcon24 {
+  width: 24px;
+  height: 24px;
+}
+
+/*  Map markers */
+.mapboxgl-marker > div {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0;
+  & > div {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.intercom-launcher-frame,
+.intercom-lightweight-app-launcher {
+  transform: scale(0.8) !important;
+}
+
+/* handling app header here bacause 
+  a) it's global component 
+  b) following requironments are specific for this app
+  Requironments for this app is to hide chat button on mobile viewport
+  I also aligned intercom chat button with mapbox info icon to free up more map space in the middle
+*/
+@media screen and (max-width: 960px) {
+  #kontur_header_chat_btn {
+    display: none;
+  }
+  .intercom-lightweight-app-launcher.intercom-launcher {
+    right: 6px;
+    bottom: 24px;
+  }
+}
