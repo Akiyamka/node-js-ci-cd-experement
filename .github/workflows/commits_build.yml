@@ -1,8 +1,8 @@
 name: test
 on: [push]
-# env:
-#   NODE_ENV: production
-#   AVA_FORCE_CI: 'not-ci'
+env:
+  NODE_ENV: production
+  AVA_FORCE_CI: 'not-ci'
 jobs:
   test:
     runs-on: ubuntu-latest
