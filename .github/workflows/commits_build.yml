@@ -34,9 +34,9 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: echo ${{ github.ref }}
-      - run: tar cvf - dist | xz -1 > artifact-${{ github.ref }}.tar.xz
+      - run: tar cvf - dist | xz -1 > ${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.${{ github.GITHUB_RUN_ATTEMPT }}.tar.xz
       - uses: actions/upload-artifact@v3
         with:
-          name: disaster-ninja-fe-${{ github.ref }}
+          name: ${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.${{ github.GITHUB_RUN_ATTEMPT }}
           path: '*.tar.xz'
 
