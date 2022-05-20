@@ -34,7 +34,6 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: 'tar cvf - dist | xz -1 > artifact-${GITHUB_SHA}.tar.xz'
-      - name: Prepare artifact
       - uses: actions/upload-artifact@v3
         with:
           name: disaster-ninja-fe-$GITHUB_SHA
