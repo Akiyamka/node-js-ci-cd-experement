@@ -7,15 +7,15 @@ on:
     #   - 'release-**'
 
   workflow_dispatch:
-    # inputs:
-    #   environment:
-    #     description: 'Environment to deploy'
-    #     required: true
-    #     type: choice
-    #     options:
-    #     - dev
-    #     - test
-        # - production
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        type: choice
+        options:
+        - dev
+        - test
+        - production
   
 jobs:
   deploy:
