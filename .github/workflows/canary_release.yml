@@ -23,8 +23,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
-        with:
-          name: disaster-ninja-fe-$GITHUB_SHA
-          path: path/to/artifact
       - name: Display structure of downloaded files
         run: ls -R
