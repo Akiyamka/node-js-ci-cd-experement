@@ -1,8 +1,8 @@
 name: canary-release
 on:
-  workflow_run:
-    workflows: ["build"]
-    types: [completed]
+  # workflow_run:
+  #   workflows: ["build"]
+  #   types: [completed]
     # branches:
     #   - 'release-**'
   workflow_dispatch:
@@ -10,9 +10,14 @@ on:
 jobs:
   deploy:
     if: ${{ github.event_name == 'workflow_dispatch' }}
+    # Really? This is only way???
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
-      - name: Display structure of downloaded files
-        run: ls -R
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
