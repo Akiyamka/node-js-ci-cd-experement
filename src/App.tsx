@@ -5,6 +5,7 @@ import config from '~core/app_config';
 
 ReactDOM.render(
   <reatomContext.Provider value={store}>
+    <h1>Env:</h1>
     <code>{JSON.stringify(config, null, 2)}</code>
   </reatomContext.Provider>,
   document.getElementById('root'),
