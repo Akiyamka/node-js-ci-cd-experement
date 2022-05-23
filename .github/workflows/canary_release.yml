@@ -1,21 +1,11 @@
 name: canary-release
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["build"]
     types: [completed]
     # branches:
     #   - 'release-**'
-
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy'
-        required: true
-        type: choice
-        options:
-        - dev
-        - test
-        - production
   
 jobs:
   deploy:
