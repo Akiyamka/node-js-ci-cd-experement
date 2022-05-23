@@ -1,0 +1,30 @@
+name: canary-release
+on:
+  workflow_run:
+    workflows: ["build"]
+    types: [completed]
+    # branches:
+    #   - 'release-**'
+
+  workflow_dispatch:
+    # inputs:
+    #   environment:
+    #     description: 'Environment to deploy'
+    #     required: true
+    #     type: choice
+    #     options:
+    #     - dev
+    #     - test
+        # - production
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: disaster-ninja-fe-$GITHUB_SHA
+          path: path/to/artifact
+      - name: Display structure of downloaded files
+        run: ls -R
