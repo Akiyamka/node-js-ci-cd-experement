@@ -16,6 +16,8 @@ jobs:
           workflow: build.yml
           workflow_conclusion: success
           name: ${{ github.ref_name }}.${{ github.sha }}.${{ github.run_attempt }}
+      - name: Extract files from archive
+        run: tar –xvzf ${{ github.ref_name }}.${{ github.sha }}.${{ github.run_attempt }}
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: .
