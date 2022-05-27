@@ -36,8 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: akiyamka/node-js-ci-cd-experement
-      
+          images: Akiyamka/node-js-ci-cd-experement/app
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
