@@ -22,7 +22,7 @@
     "postinstall": "run-s fixtypes patch",
     "fixtypes": "node ./scripts/fix-deckgl-types.mjs",
     "patch": "patch-package",
-    "docker:build": "docker build -f ./Dockerfile ./dist -t ,myimage:latest",
+    "docker:build": "docker build -f ./Dockerfile ./ -t myimage:latest",
     "docker:run": "docker run --rm -d  -p 80:80/tcp myimage:latest"
   },
   "ava": {
